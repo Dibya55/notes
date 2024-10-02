@@ -1,0 +1,17 @@
+**JavaScript Interview Questions.** 
+
+1. How do var, let and const differ in terms of accessibility based on global scope and the Temporal Dead Zone?
+
+2.What is the behavior of the this keyword when using strict mode in JavaScript?
+
+3.How can you change the definition of a prototype function using bind?
+
+4.What’s the concept behind defining and using prototype functions in JavaScript?
+
+5.What is callback hell, and how can it be managed or avoided using promise?
+
+6.What’s the difference between the Nullish Coalescing Operator (??) and the Ternary Operator (? :)?
+
+7.Can you explain the differences and use cases for call, apply, and bind?
+
+8.How does the event loop work in JavaScript, and why is it important for asynchronous operations?

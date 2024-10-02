@@ -1,0 +1,212 @@
+https://ytscribe.com/v/4UgronUwjsU/-Get notes from any videos
+videoglancer-Take picture of entire youtube video
+
+slice and splice in js
+136787
+
+
+Find the object with status p ?
+let arr = [
+  { name: 'a', status: 'f' },
+  { name: 'b', status: 'p' },
+  { name: 'c', status: 'p' },
+  { name: 'd', status: 'p' },
+  { name: 'e', status: 'f' },
+];
+//  let result = arr.filter((res) => (res.status === 'p' ? res.name : ''));
+
+let result = arr.filter((res) => res.status === 'p').map((res) => res.name);
+console.log(result)
+
+
+Chaining of javascript
+
+closure in Javascript
+They allow you to attach
+variables to an execution
+context. Variables in closures
+can help you maintain a state
+Bait Lan Ze] et 1th 0
+provide data encapsulation. They
+TAU Mele eee Lah acolo
+
+Difference between arrow
+function and normal function
+javascript
+Hoisting
+Spread Operator and rest opeartor
+
+When you don't know how many arguements will come at that time you can use rest operator.
+
+
+function multiply(multiplier, ...theArgs) {
+  return theArgs.map(element => {
+    return multiplier * element
+  })
+}
+
+let arr = multiply(2, 1, 2, 3)
+console.log(arr)  // [2, 4, 6]
+
+Object Destructing
+
+polyfills in object
+
+Current questions
+
+CommonModule?
+
+Can we use ngFor and ngif ona
+single element in angular?
+
+we can use ng-container for that.It is kind of wrapper.It is not added to the Dom.So it is a good approach.
+
+trackby in angular
+In Angular, "track by" is used with ngFor directive to improve the performance of rendering large lists of data by enabling change tracking.
+
+When rendering a list of items using ngFor directive, Angular must track changes to each item in the list to update the view if any changes occur. If the list is large or the items are complex objects, the performance may be impacted as Angular needs to run a lot of checks.
+
+To solve this issue, you can use the "track by" syntax to give Angular a unique identifier for each item in the list, so it can track changes based on that identifier instead of the object reference.
+
+Here's an example of how to use "track by" in Angular:
+
+php
+Copy code
+<ul>
+  <li *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</li>
+</ul>
+In this example, "items" is an array of objects, and "trackByFn" is a method in the component that returns a unique identifier for each item. The identifier can be any value that is unique for each item in the list, such as the item's ID.
+
+typescript
+Copy code
+trackByFn(index: number, item: any) {
+  return item.id; // or any other unique identifier for the item
+}
+By using "track by" with a unique identifier, Angular can optimize the rendering of the list by only updating the items that have changed, instead of checking every item in the list.
+
+
+
+
+Dibyaranjan Barik
+can you provide an example without trackby?
+Sure, here's an example of using ngFor without track by in Angular:
+
+php
+Copy code
+<ul>
+  <li *ngFor="let item of items">{{ item.name }}</li>
+</ul>
+In this example, "items" is an array of objects that will be iterated over by the ngFor directive. Angular will automatically track changes to the list and update the view as necessary.
+
+However, when dealing with large lists or complex objects, this approach can lead to performance issues as Angular will need to check each item in the list to detect changes.
+
+Using "track by" allows Angular to optimize change detection by only checking items that have been added, removed, or updated, based on their unique identifier.
+
+  What is the difference between forms and Reactive in Angular?
+
+Here are the differences between Template-Driven and Reactive Forms:
+
+Template Driven Forms need the FormsModule, while Reactive forms need the ReactiveFormsModule
+
+Template Driven Forms are based only on template directives, while Reactive forms are defined programmatically at the level of the component class
+
+Reactive Forms are a better default choice for new applications, as they are more powerful and easier to use.
+
+The Template Driven approach is very familiar to AngularJs developers and is ideal for easy migration of AngularJs applications into Angular.
+
+The Reactive approach removes validation logic from the template, keeping the templates cleaner.
+
+Reactive forms are easier to use in general and support better more advanced use cases via its Observable-based API.
+
+It's not an exclusive choice but for a matter of consistency, it's better to choose one of the two approaches and use it everywhere in our application, preferably Reactive forms.
+
+
+Router Outlet
+What is a router outlet?
+A Router Outlet is a directive in Angular, a popular front-end web application framework, that is used to display the content of the active component when navigating through different routes.
+
+In Angular, routes are defined in the app-routing.module.ts file using the RouterModule. When a user navigates to a specific route, the Router Outlet directive is used in the app.component.html file to display the component associated with that route.
+
+The Router Outlet acts as a placeholder where the content of the current component is inserted dynamically based on the current route. This means that the component associated with a particular route is loaded only when the user navigates to that route, allowing for faster page loads and a better user experience.
+
+The Router Outlet directive is an essential part of the Angular Router, which is responsible for managing the application's navigation and routing. By using the Router Outlet in combination with the Angular Router, developers can create complex single-page applications with multiple views and pages.
+
+
+
+
+
+
+can we use multiple router
+outlet?
+
+
+Multiple Router Outlet is a feature in Angular that allows developers to have multiple Router Outlets in their application. In simple terms, a Router Outlet is a directive in Angular that displays the content of the active component when navigating through different routes.
+
+By having multiple Router Outlets, developers can display different components in different parts of the application simultaneously, rather than just in one single section. For example, a developer might have a header component, a footer component, and a main content component in their application. They could use multiple Router Outlets to display the main content component in the main section of the application, and the header and footer components in their respective sections.
+
+To use multiple Router Outlets, developers must define the named outlets in their routing configuration file. This is done by specifying the outlet name in the path property of the route configuration. The Router Outlet directive must then reference the named outlet in the app.component.html file.
+
+Overall, Multiple Router Outlet is a powerful feature in Angular that allows developers to create more flexible and dynamic applications, providing greater control over the layout and presentation of their content.
+What is the difference between
+forChild and forRoot?
+------------------------------------------
+In Angular, both forChild and forRoot are methods used to configure the router module, but they are used in different contexts and have different effects.
+
+The forRoot method is used to set up the router configuration in the root module of the application, typically in the AppModule. This method should be called only once in the application, and it creates a new router configuration with all the necessary providers, including the router service itself. The forRoot method returns a module with the configured router, which should then be imported in the AppModule.
+
+The forChild method, on the other hand, is used to set up the router configuration in feature modules that are not the root module. It should be called for each feature module that has its own routing configuration. The forChild method creates a child router configuration that inherits all the providers from the parent router configuration created by forRoot.
+
+The main difference between forRoot and forChild is that forRoot sets up the router configuration at the root level of the application, while forChild sets up the router configuration for a child module. forRoot also provides the necessary router providers, while forChild inherits those providers from its parent module.
+
+In summary, forRoot is used in the root module of the application to configure the router and provide the necessary providers, while forChild is used in feature modules to configure child routes and inherit the providers from the parent module.
+
+
+
+one Defination-
+Guards are interfaces which tell the router whether it or not itt should allow navigation to a particular requested route.
+In Angular, Guards are used to control access to certain routes or to prevent certain actions from being executed based on specific conditions. They are an important part of Angular's routing system and provide a way to protect sensitive or restricted areas of an application.
+
+There are four types of Guards in Angular:
+
+CanActivate: This Guard is used to check if a user can access a particular route. It returns a boolean or an observable that resolves to a boolean. If the guard returns true, the user can access the route; otherwise, the user is redirected to another route.
+
+CanActivateChild: This Guard is similar to CanActivate, but it is used to check if a user can access the child routes of a particular route. It returns a boolean or an observable that resolves to a boolean.
+
+CanDeactivate: This Guard is used to check if a user can leave a particular route. It returns a boolean or an observable that resolves to a boolean. If the guard returns true, the user can leave the route; otherwise, the user is asked to confirm or cancel the navigation.
+
+CanLoad: This Guard is used to check if a user can load a particular module lazily. It returns a boolean or an observable that resolves to a boolean. If the guard returns true, the module is loaded; otherwise, the user is redirected to another route.
+
+Guards are implemented as services that can be injected into the router configuration or into components. They can also be used together with other Angular features, such as authentication and authorization services, to provide fine-grained control over the application's behavior.
+
+resolve-In Angular, "resolve" is a feature of the Angular router that allows you to prefetch data before navigating to a component. The data is resolved asynchronously, and the component is only displayed once the data is available.
+
+Directives in angular?
+Hostlistener and HostBinding
+
+Angular Material
+
+What is the difference between
+constructor and ngOninit?
+
+why constructor is intializing first?
+In angular ,we are using class based architecture.
+
+What is the use of @Injectable?
+data sharing in rxjs? ex subject 
+
+subject and types of subject
+
+diff between
+Pure pipe
+vs
+impure pipe
+Best techniques to improve  performance of our application?
+1)Lazyloading
+2)
+
+
+
+ 
+
+
+

@@ -1,0 +1,19 @@
+’ve been diving into Angular interviews and came across some intriguing questions that I'd love to hear your thoughts on! Let’s explore these topics together:
+1.What is View Encapsulation, and what are its strategies?
+(Emulated, Native, None)
+2.Are there other ways to implement two-way data binding besides ngModel?
+(Reactive forms?)
+3.What is Zone-less Detection using Signals?
+(How does it differ from traditional change detection?)
+4.How do you implement inheritance in Angular?
+(Share your approach!)
+5.Is it possible to implement multiple HTTP interceptors? If so, how?
+6.How would you dynamically implement reactive forms?
+(Any tips for runtime form changes?)
+7.What are annotations in Angular?
+(What’s their role?)
+8.What are the different event listeners in Angular vs. JavaScript?
+(Comparisons and use cases?)
+9.How do you handle errors in HTTP calls in Angular?
+(Best practices?)
+10.What’s the difference between package.json and package-lock.json?

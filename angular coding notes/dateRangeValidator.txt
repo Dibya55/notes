@@ -1,0 +1,18 @@
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { concatAll } from "rxjs";
+
+
+export const dateRangeValidator: ValidatorFn =
+    (formGroup: AbstractControl): ValidationErrors | null => {
+        const startDate = formGroup.get("startDate")?.value;
+        const endDate = formGroup.get("endDate")?.value;
+
+        if (startDate && endDate && new Date(startDate) >= new Date(endDate)) {
+            formGroup.get("endDate")?.setErrors({
+                dateRangeError: true  
+            })
+            return { dateRangeError: true };
+        }
+        return null;
+
+    }

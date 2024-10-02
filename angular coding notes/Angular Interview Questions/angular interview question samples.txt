@@ -1,0 +1,465 @@
+ng g m admin --routing(creating a module with routing files)
+ng g c admin/list
+ng g c admin/login
+
+Doubt
+RouterOutlet
+must study from angular doc.
+how to know that this module is lazy loaded, i have studied angular documentation.According to them , chunk.js should coming,
+but here it is not coming.
+
+start study fromTracking items with *ngFor trackBy
+
+https://www.udemy.com/course/the-complete-angular-course-typescript-included/
+
+ 
+
+* What is two way data binding?
+* What is DI and how angular handling DI?
+* What is lazy loading and how can we achieve this?
+* What is content Projection?
+* What are observables and promises which one to use in angular?
+* How do u transfer the data between components?
+* What is ng-content?
+* What is the usagleof ngOnChanges lifecycle hooks?
+* What is the difference between constructor and ngOnInit?
+* Can we write a class in angular without using a constructor?
+* What is difference between attribute and structural directives?
+* Which module we use in our module to use ngIf or ngFor?
+* What is difference between attribute and structural directives?
+* What are the angular provided modules we use in our app?
+
+forms
+* What is the difference between form builder and form control?
+* Let suppose we have a text field and that is name, and we have to setup a validation to accept only 5 chars so how can we achieve this by template driven forms. If we want to show the error message then how can we do it.
+* How do you set the value of form control in ts file?
+
+* What are the angular provided modules we use in our app?
+* What is the difference between form builder and form control?
+* Let suppose we have a text field and that is name, and we have to setup a validation to accept only 5 chars so how can we achieve this by template driven forms. If we want to show the error message then how can we do it.
+* How do you set the value of form control in ts file?
+* Suppose we have an API url so how can we use it to get the data?
+* What is the use of httpInterceptor Class?
+* Which method of httpClient u will use to get the data?
+.I have also pinged anand in slack all url details.But not getting any response.
+* If we get the response from the API and want to filter the result what would be another function from angular we have rather that forEach?
+* Have you used rxjs operator in your application?
+* Let suppose we have three API urls as per first response, we need to call second and as per second response we need to call third API. if there would we error then on third api call we need to show the error, what would be the best approach for this. Can we use rxjs operator in this issue?
+* What is the difference between template driven form and reactive based approach?
+* What is router outlet.
+* What is the difference between forChild and forRoot?
+* What is pathMatch in route?
+* What are the guards? And what is canLoad guard?
+* Have u written test cases in angular?
+How can we deploy our web app?
+What is PWA? Web Push Notifications | Service Worker
+How can we use authentication in Routes?
+What are the pipes and how can create custom pipes?
+How can we use common css files for multiple components?
+Lifecycle of components?
+4)
+
+ 1)What is two way data binding?
+Two-way data binding refers to sharing data between a component class and its template. If you change data in one place, it will automatically reflate at the other end. For example, if you change the value of the input box, then it will also update the value of the attached property in a component class.
+
+2)What is DI and how angular handling DI?
+https://athif-shaffy.medium.com/understanding-dependency-injection-in-angular-4a9982d7e3d6
+
+imp
+https://athif-shaffy.medium.com/understanding-dependency-injection-in-angular-4a9982d7e3d6
+Further References
+https://angular.io/guide/dependency-injection
+Pluralsight Angular Getting Started by Deborah Kurata
+Angualr Docs
+
+3)What is lazy loading and how can we achieve this?
+
+But somehow realted to angular
+Lazy loading is a technique for waiting to load certain parts of a webpage — especially images — until they are needed. Instead of loading everything all at once, known as "eager" loading, the browser does not request certain resources until the user interacts in such a way that the resources are needed.
+
+4)What is content Projection?
+sometime when when we want to send some content value from parent to child component.At that time by using <ng-content></<ng-content>.
+We can see that things in ui.when we send multi content,at that time by using selector, we can show the contents in child component.
+
+Ex..
+product.component.html
+<div class="row">
+    <div class="col-6">
+        <app-product-child [products]="productsList">
+            <a href="#" class="link">..Visit more</a>
+            <h3 class="header">Product List</h3>
+        </app-product-child>
+    </div>
+    <div class="col-6">
+        <app-product-child [products]="discountProducts">
+            <a href="#" class="link">..See more</a>
+            <h3 class="header">Discounted Products</h3>
+        </app-product-child>
+    </div>
+</div>
+
+
+ProductChildComponent html in project my-first-project in angular in cg
+<div>
+    <ng-content select=".header"></ng-content>
+    <ul class="list-group" *ngFor="let product of products">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{product.name}}
+            <span class="badge bg-primary rounded-pill">{{product.id}}</span>
+        </li>
+    </ul>
+    <ng-content select=".link"></ng-content>
+</div>
+
+5) What are observables and promises which one to use in angular?
+
+javascript is a single threaded language, it executes code in order and must finish executing a
+piece of code before moving onto the next.Javascript is synchronous.
+
+Asynchronous javascript,you can perform long network requests without blocking the main thread. 
+First one is Promise which is native in javascript.
+other one is Observable which is the part of rxjs.
+
+
+we can say promise is eager.Someone is listening or not.
+But obsevables are lazy.if nobody is there to lisen.It is not gonna call.
+ obsevables need subscriber for calling.
+
+2nd difference is promise can only return only single value,but 
+in case of observable, it can send multiple values.
+we can use different rxjs opeartors in observable.
+
+3rd difference'
+we can unsubscribe as it is obserable
+
+indepth study of subscriptions
+https://blog.bitsrc.io/6-ways-to-unsubscribe-from-observables-in-angular-ab912819a78f
+
+
+6)How do u transfer the data between components?
+from parent component to child component,using Input Decorator
+from child component to parent component,using Output Decorator
+
+We use EventEmitter API and @Output decorator to transfer or notify any parent component via events
+ that something has changed or we wish to change it.
+
+Mostly inorder to notify the parent component related to any change in child component,
+ we use Event Emitter in child component. throgh which listen that events in parent component through Event Binding.
+refer nisha singla
+
+for depth study
+https://www.topcoder.com/thrive/articles/component-events-in-angular-with-eventemitter-and-output#:~:text=We%20use%20EventEmitter%20API%20and,we%20wish%20to%20change%20it.
+
+7) What is the usagleof ngOnChanges lifecycle hooks?
+
+Inorder to achieve any angular hook , we have to implement particular interface.
+like Example OnInit is an interface and ngOnIt is a hook which trough which we can achieve it throgh in our component. 
+Angular life cycle hooks
+-----------------------
+
+constructor- called before any hook to inject dependency.
+
+Following is a description of each lifecycle hook.
+
+ngOnChanges − When the value of a data bound property changes, then this method is called.
+
+ngOnInit − This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
+
+ngDoCheck − This is for the detection and to act on changes that Angular can't or won't detect on its own.
+
+ngAfterContentInit − This is called in response after Angular projects external content into the component's view.
+
+ngAfterContentChecked − This is called in response after Angular checks the content projected into the component.
+
+ngAfterViewInit − This is called in response after Angular initializes the component's views and child views.
+
+ngAfterViewChecked − This is called in response after Angular checks the component's views and child views.
+
+ngOnDestroy − This is the cleanup phase just before Angular destroys the directive/component.
+
+constructor 
+-----------
+constructor is generally used to intialize objects in in case of
+oops language.
+
+But in case of angular,it is used to inject depenency..
+Binding has not happened till this time so only class variables 
+are accessible.
+
+whenever any chnage on that bound property of parent component,
+then ngOnChanges run.
+
+ngOnInit
+-------
+Should used to handle any intial logic that needs to execute only once.
+Binding with the ui is done.so can access all data bound properties.
+
+ngonit is in other hand is used to intialize any intializing
+logic.
+
+
+ngOnInit: This lifecycle hook is the most usable hook as we can initialise all methods and variables here in it. When we need to initialise any method where we can have the logic of getting initial data for a component then we can use ngOnInit() to call that method. This lifecycle hook will implement after all data bound properties to get called so we will have all properties to use initially. Basically, this lifecycle hook will call once and after ngOnChanges() called 
+
+
+ngOnChanges
+--------------
+This method is called once on component's creation and then every time changes are detected
+in one of the component's input properties.
+
+It receives a SimpleChanges object as a parameter which contain 
+information regarding which of the input properies has changes -in case
+we have more than one - and its current and previous values.
+
+
+It is part of ngCycle hook.Also it belong to the data bound property
+.until unless,i am not passing any data from parent component 
+to child component.This cycle hook never called.like
+
+C:\projects\angular demo\my-first-project\src\app\hooks
+example available here.
+
+ngOnChanges callled after constructor if we are reciving value from parent to child component.
+If there is any change with respect to parent component,
+at that time only ngonChanges called.
+C:\projects\angular demo\my-first-project\src\app\hooks\hooks.component.ts
+
+ngOnChanges only call when there is any chnage in in input property of parent component.
+
+
+
+ngInChanges Change detection
+Durning change detection ,when angular checks component's
+input properties for change,it checks (essentailly) === 
+for dirty checking.
+
+For array/objects ,this means the reference (only) are dirty checked,Since 
+the product array reference isn't changing.ngOnChanges wil not be called. 
+
+I can think of two possible solutions.
+
+1)Assign a new array to product whenever you make any changes to the array contents.Then ngOnChanges will be 
+ called because the array(reference) will appear as a change.
+2)Implement ngDoCheck() and perform your own change detection logic to detemine if the array content have changesd
+
+ngDoCheck
+----------
+Detect and act upon changes that angular can't or won't 
+detect on its own.
+
+called durning every change detection run , immediately after
+ngOnChanges() and ngOnInit().
+
+
+ngAfterContentInit()	Respond after Angular projects external content into the component's view, or into the view that a directive is in.
+See details and example in
+
+it will  call once durning the first change detection cycle immediatly after creation of component cycle.
+
+ngAfterContentChecked-
+AAfterContentChecked is the life cycle hook ,that angular calls durning every change detection cycle after angular completes the checking of the content for changes.
+
+Angular also updates the properties decorated with the contentChild and contentChildren before raising hook.
+
+The hook fires after the ngDoCheck and AfterContentnit. 
+
+8)Can we write a class in angular without using a constructor?
+yes, off course.Because 
+
+https://ultimatecourses.com/blog/classes-vs-interfaces-in-typescript
+
+In Angular, a constructor is used to initialize the class's properties and to perform any necessary setup tasks. However, if you don't need to initialize any properties or perform any setup tasks, you can simply omit the constructor.
+
+Here is an example of an Angular class without a constructor:
+
+export class MyClass {
+  myProperty: string;
+
+  myMethod(): void {
+    console.log('Hello World!');
+  }
+}
+
+
+In this example, the MyClass class has a single property (myProperty) and a single method (myMethod). Since there is no need to initialize myProperty or perform any setup tasks, we can omit the constructor.
+
+Note that if you need to inject dependencies into your class, you will need to use a constructor. But if you don't have any dependencies to inject, you can simply omit the constructor.
+
+9)
+What is difference between attribute and structural directives?Directive
+
+
+Components --	Used with a template. This type of directive is the most common directive type.
+Attribute directives--	Change the appearance or behavior of an element, component, or another directive.
+Structural directives --Change the DOM layout by adding and removing DOM elements
+
+Biult in Attribute directives
+
+Attribute Directives are used to modify the behavior or appearance of an element. They are applied to an element as an attribute, and their syntax is denoted by a square bracket notation ([directiveName]). Attribute directives can modify the element's attributes or change its style.
+
+NgClass	Adds and removes a set of CSS classes.
+NgStyle	Adds and removes a set of HTML styles.
+NgModel	Adds two-way data binding to an HTML form element.
+
+Built-in structural directives
+
+Structural Directives are used to add or remove elements from the DOM (Document Object Model) based on a certain condition. They are applied to an element as an attribute, and their syntax is denoted by an asterisk notation (*directiveName). Structural directives can modify the structure of the HTML element by adding or removing elements from the DOM.
+
+NgIf	Conditionally creates or disposes of subviews from the template.
+NgFor	Repeat a node for each item in a list.
+NgSwitch	A set of directives that switch among alternative views.
+
+
+
+10)Which module we use in our module to use ngIf or ngFor?
+BrowserModule imports CommonModule, which contributes many common directives such as ngIf and ngFor. Additionally, BrowserModule re-exports CommonModule making all of its directives available to any module that imports BrowserModule.
+
+For applications that run in the browser, import BrowserModule in the root AppModule because it provides services that are essential to launch and run a browser application. BrowserModule's providers are for the whole application so it should only be in the root module, not in feature modules. Feature modules only need the common directives in CommonModule; they don't need to re-install app-wide providers.
+
+If you do import BrowserModule into a lazy loaded feature module, Angular returns an error telling you to use CommonModule instead.
+
+
+Services:
+@injectable decorator means we can *inject this service in any component.
+
+Sharing of data.We also make api calls through services.
+12) What are the angular provided modules we use in our app?
+Every Angular application has at least one NgModule class, the root module, which is conventionally named AppModule and resides in a file named app.module.ts . You launch your application by bootstrapping the root NgModule.
+
+Router notes
+
+
+route parameters
+{path:'user/:id',component:UserdetailsComponent} like this example.
+this.id = this.activatedRoute.snapshot.params['id'];
+Example availabel in my-first-project
+
+Nested Route
+
+
+{
+    path: 'user/:id', component: UserdetailsComponent,
+    children: [
+      {path:"",redirectTo:"address",pathMatch:"full"},
+      { path: "address", component: AddressComponent },
+      { path: "company", component: CompanyComponent }
+    ]
+  }
+
+Named Router
+
+http://localhost:4200/about/(map:location//feeds:feedback)
+example in that project
+
+
+resolve route doubt--(Need Deep study)
+Resolve guard is used in the scenario when we want to ensure whether there is data available or not before navigating to any route. If there is no data then it has no meaning to navigate there. It means we have to resolve data before navigating to that route.
+
+
+Pipes in angular
+-------------------
+
+differnet pipes are avilable in angular you can get that things in documantation.
+<pre>
+    {{employeeData | json}}
+  </pre>
+
+
+
+component communication
+ @input,@output,@ViewChild ,@ViewChildren,
+ng-content,@ContentChild ,@ContentChildren
+
+ViewChild
+In Angular, ViewChild is a decorator that can be used to get a reference to a child component, directive or element in the parent component.
+
+Here's an example of how to use ViewChild:
+import { Component, ViewChild, ElementRef } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <app-child></app-child>
+    <button (click)="onClick()">Click me</button>
+  `,
+})
+export class ParentComponent {
+  @ViewChild(ChildComponent) childComponent: ChildComponent;
+  @ViewChild('myButton') myButton: ElementRef;
+
+  onClick() {
+    // Access the child component's method
+    this.childComponent.doSomething();
+
+    // Access the button element
+    this.myButton.nativeElement.textContent = 'Button clicked!';
+  }
+}
+
+@Component({
+  selector: 'app-child',
+  template: '<p>Child component</p>',
+})
+export class ChildComponent {
+  doSomething() {
+    console.log('Doing something...');
+  }
+}
+
+In the above example, the ParentComponent has a child component ChildComponent and a button. The @ViewChild decorator is used to get a reference to the ChildComponent and the button element.
+
+The ViewChild decorator takes either a component class or a template reference variable name as an argument. In the example, @ViewChild(ChildComponent) gets a reference to the ChildComponent, and @ViewChild('myButton') gets a reference to the button element with the template reference variable #myButton.
+
+Once you have a reference to the child component or element, you can access its properties, methods, or modify its behavior as necessary.
+
+once our components view intialized , then we can access the value of 
+viewchild element.
+
+
+
+Elementref
+In Angular, ElementRef is a class that provides access to the underlying DOM element of a component. It is one of the ways to interact with the DOM in Angular.
+
+To use ElementRef, you need to first import it from the @angular/core module:
+import { Component, ElementRef } from '@angular/core';
+Then, you can inject ElementRef into your component's constructor and use it to access the underlying DOM elemen
+@Component({
+  selector: 'my-component',
+  template: '<div>Hello, World!</div>'
+})
+export class MyComponent {
+  constructor(private elementRef: ElementRef) {
+    // access the underlying DOM element
+    console.log(this.elementRef.nativeElement);
+  }
+}
+
+
+In the above example, elementRef.nativeElement refers to the underlying div element in the template.
+
+It's important to note that using ElementRef to manipulate the DOM directly is generally not recommended in Angular, as it can lead to performance and security issues. Instead, it's often better to use Angular's data binding and event binding features to update the UI.
+
+
+@ContentChild and @ContentChildren
+
+once my view is completely intialized,then i am 
+ready to perform differnt operations in ngAfterInit()
+
+ngAfterInit hook only call when once our view is completely intialized. once our view intialized,then we can able to access               the content and perform operation.
+
+Guards
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

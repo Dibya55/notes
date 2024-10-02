@@ -1,0 +1,90 @@
+Here are some of the top hashtag#interview hashtag#questions for hashtag#Angular:
+
+Most Asked Angular Interview Questions
+
+
+What is Angular? Why was it introduced?
+
+What is TypeScript?
+
+→ What is data binding? Which type of data binding
+
+does Angular deploy?
+
+What are Single Page Applications (SPA)?
+
+➡ Differentiate between Angular and AngularJS
+
+→ What are decorators in Angular?
+
+Mention some advantages of Angular
+
+What are the new updates with Angular 10?
+
+What are Templates in Angular?
+
+→ What are Annotations in Angular?
+
+
+Angular Interview Questions For Beginners
+
+
+➡ What are Directives in Angular?
+
+→ What is an AOT compilation? What are its advantages?
+
+What are Components in Angular?
+
+What are Pipes in Angular?
+
+What is the Pipe Transform interface?
+
+What are Pure Pipes?
+
+What are Impure Pipes?
+
+What is an ngModule?
+
+What are filters in Angular? Name a few of them
+
+What is view encapsulation in Angular?
+
+What are controllers?
+
+What do you understand by scope in Angular?
+
+Explain the lifecycle hooks in Angular
+
+What is String Interpolation in Angular?
+
+→ What are Template statements?
+
+
+Angular Interview Questions For Advanced Level
+
+
+What is the difference between AOT and JIT?
+
+Explain the @Component Decorator
+
+What are Services in Angular?
+
+What are Promises and Observables in Angular?
+
+What is ngOnInit? How is it defined?
+
+How to use ngFor in a tag?
+
+What are Template and Reactive forms?
+
+➡ What is Bootstrap? How is it embedded into Angular?
+
+→ What is Eager and Lazy loading?
+
+What type of DOM does Angular implement?
+
+→ Why were client-side frameworks like Angular introduced?
+
+→How does an Angular application work?
+
+→ Explain components, modules, and services in Angular

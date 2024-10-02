@@ -1,0 +1,134 @@
+JavaScript questions
+---------------------
+
+-> Execution context in javascript , how code is executed.
+
+-> Difference between es5 and es6 , limitation of es5,
+advantage of es5 over es6
+
+->what is aync programming?
+you should know callback ,promise ,setTimeOut()
+
+why we avoid call back , Due to callback hell.
+we use promise. Then why we use async and await.
+
+
+Promises and async/await are both used for handling asynchronous operations in JavaScript, but async/await was introduced to make the code more readable and easier to manage, especially when dealing with complex asynchronous code.
+
+as you know js is synchronous programming language.ok then 
+how can we make it asynchronoyus.
+
+->what is event loop and how it works?
+so the question would be like
+what is event loop,what it does basically,also what it does with call stack.
+
+->Difference between maicrotask queus and macrotask queue.
+
+->Callbacks and setTimeout , promises , chaining promises ,Promise.all ,Promise.race handling ,async await
+
+->what is module syste, how can can we create a module , how 
+the datas are availbale to the other files
+
+->javascript design patterns
+this is mostly asked according to your experience.
+
+->Higher order functions / pure function in javascript
+
+->Variables ,scope ,data Types ,operatos ,loops
+
+-> Call ,Apply ,Bind
+when we call bind , it will not execute that time .it will hold that.Later when when we call again , then it will execute.
+
+->
+htmt and css questions
+---------------------------
+
+->Http request life cycle
+when you ahit an url , what happens at time in server side,
+how further that page renders.
+
+->
+what are dom and cssdom.
+very good article in mediym
+
+->Semantic Html and accessibility guidelines
+es5 introduced semantic tags
+why we use , if we dont use what will be effect
+
+->
+form and validation
+
+->
+Media responsive images , audio, and video
+
+->
+Browser side storage , workers and catching -Local sessions , cookies , indexDb,WebSQl service workers , webworkers
+
+->what is seo?
+what are the standards we should follow to make our page seo friendl
+
+-> css rules , specificity ,pseudo class and pseudo elements
+
+->Flex layout , bootstrap
+
+->responsive web design (mobile ,tablet) ,and what is media query
+
+-> css preprocessor , what is sass.
+
+
+
+Angular 
+--------------
+->What are custom elements in angular?
+
+-> spiltting an application into components.
+describe architecture of your project.
+
+-> View Encapsulation
+
+->
+view child
+->types of data binding
+
+-> using builtin Attribute and structural directives.
+
+->creating custom directives.
+
+-> render , host listener and host binding
+
+-> Inbuilt pipes , parameterization and chaining create
+custom pipes.
+
+->the async pipe
+
+->need for services ,service instances, component, communication using services
+
+-> these question , they wil ask .
+how to create service, what is injectable.
+how can we inject that in component level and module level
+
+
+->angular modules , features and shared modules eagerly and lazy loades modules
+
+->Template- driven and reactive forms validation , Built-in and custom validator.
+
+-> Different types of subject operators
+
+for parent and child component , we can use input and output ,but for sibling components we use subject with services
+
+->Interceptor for request and response 
+
+->what is canActivate, can Deactivate and resolve 
+
+->Test setup ,code coverage testing components and services
+
+->code formatting ,unit testing , git testing , ci and cd integrations.
+
+->State management using NgRx or ssr using angular universal.
+
+->This is one of the most important question.if have not worked , you can say like that i did not get chance to work on this . But i have some idea on this.
+
+
+
+
+

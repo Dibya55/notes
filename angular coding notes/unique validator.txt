@@ -1,0 +1,16 @@
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+
+
+export const uniqueIdValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null =>{
+    
+    const uniqueId = control.get('uniqueId');
+    const cUniqueId = control.get('cUniqueId');
+
+    if (uniqueId && cUniqueId && uniqueId.value != cUniqueId.value){
+        return  {
+            uniqueIdMatchError:true
+        }
+    }
+
+    return null;
+}

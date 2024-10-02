@@ -1,0 +1,115 @@
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { ProductService } from '../services/product.service';
+import { compileFunction } from 'vm';
+import { count } from 'console';
+import { Subject } from 'rxjs';
+
+@Component({
+  selector: 'app-promisenandobserable',
+  templateUrl: './promisenandobserable.component.html',
+  styleUrls: ['./promisenandobserable.component.css']
+})
+export class PromisenandobserableComponent implements OnInit {
+  val: any;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.subjectExample();
+    this.behaivourSubjectExample();
+
+    // promise is part of javascript , but obserable is part of rxjs, we dont have to install it ,
+    // it comes with angular
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve("hello")
+      }, 1000);
+    })
+
+    promise.then((res) => {
+      console.log(res)
+    })
+    // here in this way , we have created an obserable , inorder to send data , we have to use 
+    // next method
+    const obserable = new Observable(ob1 => {
+      setTimeout(() => {
+        ob1.next(1000);
+      }, 1000)
+    })
+
+    // obserable.subscribe(res => console.log(res))
+
+    const obserable1 = new Observable(ob1 => {
+      let counter = 0;
+      setInterval(() => {
+        counter++;
+        ob1.next(counter);
+      }, 1000)
+    })
+    // this.val = obserable1.subscribe(res => console.log("Subscriber count is " +res))
+  }
+
+
+  // the major difference between promise and obserable is , 
+  //1. promise return single value , where obserable return multiple values
+  // 2.Promise are eager .
+  // It does not matter , whether some one is listening or not . Promises are executed immediately upon creation. Once a promise is created, it starts running.in case 
+  // of obserables , it is lazy .If nobody is there to listen , then it won't call.
+  // obserable will need a subscriber , if nobody is there , then it won't call 
+  // 3 also there are lot of operators are there , we can use for manipulate 
+  // asynchronous data, but in case of promise not set of operators are there
+  // 4. Once a Promise is initiated, it cannot be canceled.Observables can be canceled. You can unsubscribe from an Observable to stop receiving values.
+  // 5 Usage	Simple asynchronous tasks	Complex asynchronous data streams
+
+  subjectExample() {
+
+    const subject = new Subject<number>();
+
+    subject.subscribe({
+      next: (v) => console.log(`Observer 1: ${v}`)
+    });
+
+    subject.next(1); // Observer 1: 1
+
+    subject.subscribe({
+      next: (v) => console.log(`Observer 2: ${v}`)
+    });
+
+    subject.next(2); // Observer 1: 2, Observer 2: 2
+
+  }
+
+  behaivourSubjectExample() {
+    //   Behavior subJect holds one value.
+    // When it is subscribed it emits the
+    // value immediately.
+    // A Subject doesn't hold a value.
+
+    // See in case of subject , it does not contain any default value.
+    // we have to subscribe fist, then when after emitting , we will get value.
+
+    // In case of behaivour subjet , as it contains default value , we can subscribe , and 
+    // will get the value or also when  we subscribe , either it will give default value or 
+    // last emitted value.
+
+    const bh1  = new BehaviorSubject<number>(1);
+    bh1.subscribe(res=>console.log(res,"bh1"))
+
+    bh1.next(10);
+
+    
+
+
+    
+
+  }
+
+
+
+  ngOnDestroy() {
+    this.val.unsubscribe();
+  }
+
+
+}

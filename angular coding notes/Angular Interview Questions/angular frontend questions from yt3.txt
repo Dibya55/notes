@@ -1,0 +1,37 @@
+Which is angular the
+latest version?
+Version 14
+
+Angular 14 was released on 2 June 2022.
+Some new features include typed forms,
+standalone components, and new primitives
+in the Angular CDK (component dev kit).
+
+Se luer MMe Mee lel g uke aCe le
+lemma Am) me OO anh e ae  e O
+
+Angular Elements, router and more.
+
+ 
+interviewrs can ask about what are the latest version of angular? and also its features
+
+Why you are using this particular version in your project?
+
+What are the data
+types in JavaScript?
+String.
+Number
+Bigint.
+Boolean.
+Undefined.
+Null.
+Symbol.
+Object.
+
+The fundamental difference between primitives and non-primitive is that primitives are immutable
+and non-primitive are mutable . Mutable values are those which can be modified after creation.
+Immutable values are those which cannot be modified after creation.
+
+ 
+
+

@@ -1,0 +1,262 @@
+console.log(1 + "2" + "2");//122
+console.log(1 + +"2" + "2");//32
+console.log(1 + -"1" + "2");//"02"
+console. log(+"1" + "1" + "2");//112
+console.log( "A" - "B" + "2");//NAN2
+console.log( "A" - "B" + 2);//NAN
+
+There is a concept call unary operator.Must study.
+
+for (var i = 0; i <5; i++) {
+var btn = document.createElement( 'button' );
+btn. appendChild(document.createTextNode( ‘Button ' + i));
+btn.addEventListener('click', function(){ console.log(i); });
+document.body.appendChild(btn);
+}
+
+for (let i = 0; i <5; i++) {
+var btn = document.createElement( 'button' );
+btn. appendChild(document.createTextNode( ‘Button ' + i));
+btn.addEventListener('click', function(){ console.log(i); });
+document.body.appendChild(btn);
+}
+
+Subject vs Observalve
+What is async Pipe in angular? |
+
+for...of - Use to loop over strings and arrays.
+for...in - Use to loop over objects
+
+const student = {
+  registration: "123456",
+  name: "Sandeep",
+  age: 33,
+}
+for(i in student){
+  console.log(i,":",student[i])
+}
+
+const student = {
+  registration: "123456",
+  name: "Sandeep",
+  age: 33,
+}
+for(i of student){
+  console.log(i,":",student[i])
+}
+Error: student is not iterable
+
+but map only work in array ,array of objects
+
+
+The forEach() method is used to iterate over an array. For example,
+
+let students = ['John', 'Sara', 'Jack'];
+
+// using forEach
+students.forEach(myFunction);
+
+function myFunction(item) {
+
+    console.log(item);
+}
+forEach with Arrow Function
+// with arrow function and callback
+
+const students = ['John', 'Sara', 'Jack'];
+
+students.forEach(element => {
+  console.log(element);
+});
+
+Generic type in Angular |
+In Angular, a generic type is a type that can work with multiple types of data. Generic types are used to create reusable components and services that can be used with different types of data without having to rewrite the code for each data type.
+
+Angular has built-in support for generic types in several places, such as:
+
+Component and Directive Inputs: When creating a component or directive that can accept inputs of different types, you can use a generic type to specify the type of the input data.
+For example, if you have a component that displays a list of items, you can use a generic type to specify the type of the items in the list:
+
+less
+Copy code
+@Component({
+  selector: 'app-item-list',
+  template: `
+    <ul>
+      <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+  `
+})
+export class ItemListComponent<T> {
+  @Input() items: T[];
+}
+Here, the ItemListComponent uses a generic type T to specify the type of the items in the list. When the component is used, the type of the items input will be determined by the data being passed to it.
+
+Services: Services in Angular can also use generic types to create reusable code that can work with different types of data.
+For example, if you have a service that performs CRUD operations on a database, you can use a generic type to specify the type of data being operated on:
+
+kotlin
+Copy code
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService<T> {
+  constructor(private http: HttpClient) {}
+
+  getAll(): Observable<T[]> {
+    return this.http.get<T[]>('/api/data');
+  }
+
+  getById(id: number): Observable<T> {
+    return this.http.get<T>(`/api/data/${id}`);
+  }
+
+  create(data: T): Observable<T> {
+    return this.http.post<T>('/api/data', data);
+  }
+
+  update(id: number, data: T): Observable<T> {
+    return this.http.put<T>(`/api/data/${id}`, data);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`/api/data/${id}`);
+  }
+}
+Here, the DataService uses a generic type T to specify the type of data being operated on. This allows the service to work with different types of data without having to rewrite the code for each type.
+
+In summary, generic types in Angular are used to create reusable components and services that can work with different types of data. They allow you to write code that is more flexible and easier to maintain.
+
+refer this tutorial
+https://www.youtube.com/watch?v=LJOHzZWL6s0&pp=ygUZR2VuZXJpYyB0eXBlIGluIEFuZ3VsYXIgfA%3D%3D
+
+
+What is the use of formBuilder
+and formGroup?
+In Angular, formBuilder and formGroup are both used to build and manage forms.
+
+formBuilder is a service that provides a simple way to create complex forms in Angular. It allows you to create form controls and groups programmatically using a builder pattern, rather than creating them manually in the template.
+
+Here's an example of how to use formBuilder to create a form:
+
+kotlin
+Copy code
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-my-form',
+  template: `
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="name" />
+      <input type="email" formControlName="email" />
+      <button type="submit">Submit</button>
+    </form>
+  `,
+})
+export class MyFormComponent {
+  myForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.myForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.email],
+    });
+  }
+
+  onSubmit() {
+    // Handle form submission
+  }
+}
+In this example, formBuilder is used to create a form group with two form controls: name and email. The Validators class is used to set validation rules on the name and email controls.
+
+formGroup is a class that represents a group of form controls. It is used to define the structure of a form and manage its state. A form group can contain one or more form controls, and can also contain nested form groups.
+
+Here's an example of how to use formGroup to define the structure of a form:
+
+python
+Copy code
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-my-form',
+  template: `
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="name" />
+      <input type="email" formControlName="email" />
+      <button type="submit">Submit</button>
+    </form>
+  `,
+})
+export class MyFormComponent {
+  myForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.email),
+  });
+
+  onSubmit() {
+    // Handle form submission
+  }
+}
+In this example, formGroup is used to create a form group with two form controls: name and email. The Validators class is used to set validation rules on the name and email controls.
+
+Overall, formBuilder and formGroup are both important tools for building and managing forms in Angular. They provide a simple and flexible way to create complex forms with validation and state management.
+
+
+difference between form builder and form group
+formBuilder and formGroup are both used for building and managing forms in Angular, but they serve different purposes.
+
+formBuilder is a service provided by Angular that provides a simple way to create complex forms in Angular. It allows you to create form controls and groups programmatically using a builder pattern, rather than creating them manually in the template.
+
+On the other hand, formGroup is a class that represents a group of form controls. It is used to define the structure of a form and manage its state. A form group can contain one or more form controls, and can also contain nested form groups.
+
+The main difference between the two is that formBuilder is a service that provides a simplified API for creating form groups and controls programmatically, while formGroup is a class that is used to define the structure of a form and manage its state.
+
+formBuilder is especially useful when creating forms with a large number of form controls, where manually creating each control can be time-consuming and error-prone. By contrast, formGroup is used to define the structure of the form and manage its state, and is often used in conjunction with formBuilder to create complex forms.
+
+In summary, while formBuilder is used to programmatically create form controls and groups, formGroup is used to define the structure of a form and manage its state. Both are important tools for building and managing forms in Angular, and are often used together to create complex and dynamic forms.
+
+How can we add dynamic
+validation in form
+What is nested reactive form?
+What is the use of formarray in
+reactive form angular
+Change detector class in angular
+10 rxjs operator
+View Encapsulation in Angular |
+What is NgZone
+What is a shared module?
+https://stackblitz.com/edit/select-on-click-va8vpn?file=src%2Fapp%2Fapp.component.html,src%2Fapp%2Fapp.component.ts
+
+Why is the use of interface in
+angular?
+
+viewchild
+What is the entry component in
+angular?
+How many ways we can pass data
+to multiple components?
+Whatis a resolver in angular?
+JIT vs AOT
+What is lazy loading?
+What is HTTP Interceptor?
+What is HTTP Interceptor?
+What is HTTP Interceptor?
+
+What is the NGCC
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

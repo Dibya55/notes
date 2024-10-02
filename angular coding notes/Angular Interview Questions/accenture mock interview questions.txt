@@ -1,0 +1,238 @@
+https://youtu.be/Krjxb9X3LNQ
+
+IF WE WANT TO SHOW ONE
+PAGE INSIDE ANOTHER PAGE
+HOW WE CAN SHOW THAT
+
+In HTML, a Document Type Definition (DOCTYPE) is used to specify the type and version of the document, which helps the browser to understand how to interpret the HTML content. There are several types of DOCTYPEs used in HTML:
+
+HTML5 (Recommended):
+
+html
+Copy code
+<!DOCTYPE html>
+HTML5 introduced a simplified and standardized DOCTYPE declaration that is compatible with all modern browsers. It is the most commonly used DOCTYPE for HTML documents.
+
+HTML 4.01 Strict:
+
+html
+Copy code
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+This DOCTYPE is used for documents that adhere to the strictest interpretation of the HTML 4.01 specification. It enforces the use of structural and semantic markup and avoids deprecated elements.
+
+HTML 4.01 Transitional:
+
+html
+Copy code
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+This DOCTYPE is used for documents that need to transition from older HTML practices to more modern practices. It allows the use of deprecated elements and attributes.
+
+HTML 4.01 Frameset:
+
+html
+Copy code
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+This DOCTYPE is used for documents that contain frameset elements, which are used to divide a web page into multiple frames or sub-windows.
+
+XHTML 1.0 Strict:
+
+html
+Copy code
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+XHTML is a stricter and XML-based version of HTML. The "Strict" variant enforces well-formed markup and disallows presentational elements and attributes.
+
+XHTML 1.0 Transitional:
+
+html
+Copy code
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+Similar to XHTML 1.0 Strict, but it allows for the use of deprecated elements and attributes, making it easier to transition from older HTML to XHTML.
+
+XHTML 1.0 Frameset:
+
+html
+Copy code
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+Used for documents containing framesets, similar to the HTML 4.01 Frameset DOCTYPE.
+
+XHTML 1.1:
+
+html
+Copy code
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+This DOCTYPE is used for documents conforming to XHTML 1.1, which is more modular and stricter than previous versions.
+
+Custom or Deprecated DOCTYPEs:
+Some older or non-standard documents may use custom or deprecated DOCTYPEs that are specific to certain browsers or practices. It's best to avoid these and use modern DOCTYPEs for better compatibility and standards compliance.
+
+For modern web development, it's recommended to use the HTML5 DOCTYPE (<!DOCTYPE html>) because it's widely supported and simplifies document declaration.
+
+------------
+
+WHAT IS THE WAY WE CAN CREATE
+OBJECTS IN JAVASCRIPT?
+
+There are different ways to create new objects:
+1 . Createa single object, using an object t iteral.
+2 . Create a single object, with the keyword new.
+3 . Define an object constructor, and then
+create objects of the constructed type.
+4.Create an object using Object.create( )
+
+// using object literal
+let obj1 = {
+  name: 'Dibya',
+  roll: 24,
+};
+console.log(obj1);
+
+// using Object Method
+let obj2 = new Object({
+  name: 'mohit',
+});
+console.log(obj2);
+
+// this object is created by constructor function
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+let monu = new Person('monu', 'kumar', 18, 'blue');
+console.log(monu);
+
+// Usig object.create
+let samu = Object.create({
+  name: 'mohit',
+  age: 20,
+});
+console.log(samu);
+
+// Certainly! In JavaScript, the Object.create() method is used to create a new object with a specified prototype object. Here's an example:
+// Creating a prototype object
+const myPrototype = {
+  greet: function () {
+    console.log('Hello!');
+  },
+};
+
+// Creating a new object using Object.create() with myPrototype as the prototype
+const myObject = Object.create(myPrototype);
+
+// Now, myObject has the greet method inherited from myPrototype
+myObject.greet(); // Output: Hello!
+
+// In this example, myObject is created with myPrototype as its prototype. As a result, myObject inherits the greet method from myPrototype.
+
+
+
+-------------------------------------------
+what is event loop in javascript?
+
+full example is there in akshay saini notes alok raj.
+In JavaScript, the event loop manages the execution of code by handling tasks in two different queues: the macrotask queue (also known as the task queue or callback queue) and the microtask queue (also known as the job queue).
+
+Macrotask Queue:
+Macrotasks are larger tasks that are added to the macrotask queue. These tasks usually represent events or operations that take a longer time to complete, such as I/O operations, rendering, or setTimeout callbacks.
+Macrotasks are processed one at a time, and each task runs to completion before moving on to the next one.
+Examples of macrotasks include setTimeout, setInterval, DOM manipulation, and I/O operations.
+
+Microtask Queue:
+Microtasks are smaller tasks that are added to the microtask queue. These tasks are meant to be executed quickly and are often used for callbacks related to promises and other asynchronous operations.
+Microtasks are processed immediately after the current macrotask completes but before the next macrotask begins.
+Examples of microtasks include promise callbacks (then, catch, finally), and process.nextTick in Node.js.
+Here's a brief example to illustrate the order of execution:
+
+javascript
+Copy code
+console.log("Start");
+
+// Macrotask (setTimeout)
+setTimeout(function () {
+  console.log("Inside setTimeout (macrotask)");
+}, 0);
+
+// Microtask (Promise)
+Promise.resolve().then(function () {
+  console.log("Promise resolved (microtask)");
+});
+
+console.log("End");
+In this example, the order of execution is:
+
+"Start" is logged.
+The macrotask (setTimeout) is added to the macrotask queue.
+The microtask (Promise) is added to the microtask queue.
+"End" is logged.
+The event loop processes the microtask queue, logging "Promise resolved (microtask)".
+The event loop processes the macrotask queue, logging "Inside setTimeout (macrotask)".
+Understanding the difference between macrotasks and microtasks is crucial for managing the order of execution in asynchronous JavaScript code. It helps ensure that certain tasks are prioritized and executed in the appropriate order.
+
+The order of execution is as follows:
+
+console.log("Start");: This logs "Start" to the console.
+setTimeout(...);: The setTimeout is added to the macrotask queue. Note that the specified delay of 0 doesn't mean it executes immediately; it simply schedules it to run in the macrotask queue as soon as the call stack is clear.
+Promise.resolve().then(...);: The promise microtask is added to the microtask queue. Microtasks generally have a higher priority and are executed before the next macrotask.
+console.log("End");: This logs "End" to the console.
+Microtask Queue Execution: The microtask queue is processed, executing the promise microtask, which logs "Promise resolved (microtask)".
+So, the key factor here is that microtasks (such as promise callbacks) are generally executed before macrotasks (such as setTimeout callbacks). This is why "Promise resolved (microtask)" is logged before "Inside setTimeout (macrotask)".
+
+Understanding this order of execution is essential for writing predictable asynchronous JavaScript code.
+
+--------------------------------------------------
+
+
+
+HAT IS THE DIFFERENCE
+BETWEEN
+NULL AND UNDEFINED
+
+HOW TO REDIRECT TO NEW PAGE
+IN JAVASCRIPT using anchor tag?
+
+if we want to open that particular page in new tab,then we have to specify target.
+
+WHAT IS PROMISE IN JAVASCRIPT
+
+WHY DO WE HAVE TO USE
+PROMISE IN JAVASCRIPT?
+
+WHAT IS THE USE OF DOUBLE
+EXCLAMATION (!!)
+that interview said that they have used it many times in angular to check
+whether tokens present in local storage
+
+WHAT IS THE SUBJECT IN
+ANGULAR
+AND
+WHAT TYPE OF IT
+
+Subject — No initial value or replay available.
+BehaviouralSubject
+— requires an initial value and emits
+AsyncSubject
+ReplaySub)ect
+current values to new subscribers.
+— Emits latest values to subscribers
+on completion of the async task.
+replays a specified number of
+last values to new subscribers
+
+WHAT ARE THE KEY
+COMPONENTS OF ANGULAR
+
+5 Key Components of Angular
+1 . Components.
+2 . Modules.
+3 . Templates.
+4 . Services.
+5 . Metadata and decorators.
+
+
+
+
+
+
+
+

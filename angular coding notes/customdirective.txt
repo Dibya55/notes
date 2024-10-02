@@ -1,0 +1,25 @@
+import { Directive, HostListener } from '@angular/core';
+import { createSolutionBuilderWithWatchHost } from 'typescript';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+
+  constructor() { }
+
+  @HostListener("mouseenter")
+  onMouseEnter() {
+    console.log("mouse entered")
+  }
+
+  @HostListener("mouseleave") onMouseLeave() {
+    // console.log("mouse leave")
+  }
+
+  @HostListener("window:scroll") onScroll() {
+    // console.log("scrolled")
+  }
+
+
+}

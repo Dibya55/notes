@@ -1,0 +1,8 @@
+Interview Video Url - https://youtu.be/ehaT1KFp0_Y
+
+1) What are life cycle hooks method in angular?
+
+Ans- First constuctor is called as part of typescript.
+
+2) Difference between ngOnChanges and ngDoCheck
+
